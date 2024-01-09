@@ -3,3 +3,10 @@ packages:
     cryptol-remote-api
     tests
     deps/argo/argo
+
+-- TODO RGS: Remove this
+source-repository-package
+  type: git
+  location: https://github.com/GaloisInc/what4
+  subdir: what4
+  tag: 59698a7854cbd26e5703a263b28d193f22400f07

@@ -47,6 +47,7 @@ solver](https://github.com/Z3Prover/z3) by default to solve constraints
 during type checking, and as the default solver for the `:sat` and
 `:prove` commands.  Cryptol generally requires the most recent version
 of Z3, but you can see the specific version tested in CI by looking [here](https://github.com/GaloisInc/what4-solvers/releases/tag/snapshot-20230711).
+# TODO RGS: Update the URL above
 
 You can download Z3 binaries for a variety of platforms from their
 [releases page](https://github.com/Z3Prover/z3/releases). If you

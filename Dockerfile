@@ -18,6 +18,7 @@ RUN mkdir -p rootfs/usr/local/bin
 WORKDIR /cryptol/rootfs/usr/local/bin
 # The URL here is based on the same logic used to specify BIN_ZIP_FILE in
 # `.github/workflow/ci.yml`, but specialized to x86-64 Ubuntu.
+# TODO RGS: Update me
 RUN curl -o solvers.zip -sL "https://github.com/GaloisInc/what4-solvers/releases/download/snapshot-20230711/ubuntu-22.04-X64-bin.zip"
 RUN unzip solvers.zip && rm solvers.zip && chmod +x *
 WORKDIR /cryptol
@@ -46,7 +47,8 @@ RUN    ! $(cryptol -c ":s prover=yices" | tail -n +2 | grep -q .) \
     && ! $(cryptol -c ":s prover=cvc4" | tail -n +2 | grep -q .) \
     && ! $(cryptol -c ":s prover=cvc5" | tail -n +2 | grep -q .) \
     && ! $(cryptol -c ":s prover=abc" | tail -n +2 | grep -q .) \
-    # && ! $(cryptol -c ":s prover=boolector" | tail -n +2 | grep -q .) \
+    && ! $(cryptol -c ":s prover=bitvector" | tail -n +2 | grep -q .) \
+    && ! $(cryptol -c ":s prover=boolector" | tail -n +2 | grep -q .) \
     && ! $(cryptol -c ":s prover=z3" | tail -n +2 | grep -q .)
 RUN mkdir -p rootfs/"${CRYPTOLPATH}" \
     && cp -r lib/* rootfs/"${CRYPTOLPATH}"
